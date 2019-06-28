@@ -2,10 +2,8 @@
 ## ...and further improved/extended by MK
 import copy
 from collections import defaultdict
-
+from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 unused import
 import math
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -318,7 +316,8 @@ def drop_each(data, each_num):
 
 
 if __name__ == '__main__':
-    results = {'good': [0, 20, 29, 43, 49, 58], 'bad': [0, 2, 6, 9, 14, 19], 'unknown': [77, 55, 42, 25, 14, 0]}
+    results = {'good': [70, 68, 65, 63, 62], 'bad': [7, 9, 12, 14, 15]}
+    # results = {'good': [0, 20, 29, 43, 49, 58], 'bad': [0, 2, 6, 9, 14, 19], 'unknown': [77, 55, 42, 25, 14, 0]}
     normalized = {}
     totals = [0, 0, 0, 0, 0, 0]
     for k, values in results.items():
@@ -327,7 +326,8 @@ if __name__ == '__main__':
     for k, values in results.items():
         values = [v/t * 100 for v,t in zip(values, totals)]
         normalized[k] = values
-    k1 = [1, 0.9, 0.8, 0.7, 0.6, 0.50001]
-    k1.reverse()
+    k1 = [0.25,0.3,0.35,0.4,0.45]
+    # k1 = [1, 0.9, 0.8, 0.7, 0.6, 0.50001]
+    # k1.reverse()
 
-    draw_hist(k1, normalized, "pima/7/unknown")
+    draw_hist(k1, normalized, "pima/7/unknown_own")

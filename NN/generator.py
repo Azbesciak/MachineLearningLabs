@@ -1,3 +1,6 @@
+import random
+
+
 def parse_args():
     from argparse import ArgumentParser
     from argparse import ArgumentDefaultsHelpFormatter
@@ -23,7 +26,8 @@ def generate_f0(neurons, connections):
     out = "//0\np:\n"
     out += "n:d=Nu\n" * neurons
     for c in connections:
-        out += f"c:{c[0]}, {c[1]}, 1\n"
+        value = random.randint(1, 25)
+        out += f"c:{c[0]}, {c[1]}, {value}\n"
     return out
 
 
